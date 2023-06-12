@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://truongle2211.github.io/dota2-stats/",
   "eslintConfig": {
     "extends": [
       "react-app",
