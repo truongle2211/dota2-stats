@@ -1,6 +1,7 @@
 import { Table } from "antd";
 import { useState } from "react";
 import { getHeroTableColumns } from "../utils/heroes_table_columns";
+import { getHeroStatWithLevel } from "../utils/process_hero_data";
 
 const HeroesTable = ({ heroesData, level }) => {
   const [sortedInfo, setSortedInfo] = useState({
@@ -8,16 +9,9 @@ const HeroesTable = ({ heroesData, level }) => {
     order: "ascend",
   });
 
-  const heroStatWithLevel = heroesData.map((herodata) => {
-    const { str, agi, int } = herodata;
-
-    return {
-      ...herodata,
-      str: Number((str + level * herodata.str_gain).toFixed(2)),
-      agi: Number((agi + level * herodata.agi_gain).toFixed(2)),
-      int: Number((int + level * herodata.int_gain).toFixed(2)),
-    };
-  });
+  const heroStatWithLevel = heroesData.map((herodata) =>
+    getHeroStatWithLevel(herodata, level)
+  );
 
   const handleChange = (sorter) => {
     setSortedInfo(sorter);

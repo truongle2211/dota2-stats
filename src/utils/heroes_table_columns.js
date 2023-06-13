@@ -33,39 +33,49 @@ export const getHeroTableColumns = () => [
     sorter: (a, b) => a.attribute.localeCompare(b.attribute),
   },
   {
-    title: "Strength",
+    title: "Str",
     dataIndex: "str",
     key: "str",
     sorter: (a, b) => a.str - b.str,
   },
   {
-    title: "Agility",
+    title: "Agi",
     dataIndex: "agi",
     key: "agi",
     sorter: (a, b) => a.agi - b.agi,
   },
   {
-    title: "Intelligence",
+    title: "Int",
     dataIndex: "int",
     key: "int",
     sorter: (a, b) => a.int - b.int,
   },
   {
-    title: "Strength Gain",
+    title: "Str Gain",
     dataIndex: "str_gain",
     key: "str_gain",
     sorter: (a, b) => a.str_gain - b.str_gain,
   },
   {
-    title: "Agility Gain",
+    title: "Agi Gain",
     dataIndex: "agi_gain",
     key: "agi_gain",
     sorter: (a, b) => a.agi_gain - b.agi_gain,
   },
   {
-    title: "Intelligence Gain",
+    title: "Int Gain",
     dataIndex: "int_gain",
     key: "int_gain",
     sorter: (a, b) => a.int_gain - b.int_gain,
+  },
+  {
+    title: "Attack Damage",
+    dataIndex: "attack_damage",
+    key: "attack_damage",
+    render: (_, hero) => (
+      <span>
+        {hero.attack_min} - {hero.attack_max}
+      </span>
+    ),
   },
 ];
